@@ -18,18 +18,23 @@ function calculate() {
     resultText = "Please enter valid numbers.";
   } else if (type === "simple") {
     const SI = (P * R * T) / 100;
-    resultText = `Simple Interest: ₹${SI.toFixed(2)}<br>Total Amount: ₹${(P + SI).toFixed(2)}`;
+    resultText = `Simple Interest: ₹${SI.toFixed(2).toLocaleString()}<br>Total Amount: ₹${(P + SI).toFixed(2).toLocaleString()}`;
   } else if (type === "compound") {
     const amount = P * Math.pow((1 + R / (100 * N)), N * T);
     const CI = amount - P;
-    resultText = `Compound Interest: ₹${CI.toFixed(2)}<br>Total Amount: ₹${amount.toFixed(2)}`;
+    resultText = `Compound Interest: ₹${CI.toFixed(2).toLocaleString()}<br>Total Amount: ₹${amount.toFixed(2).toLocaleString()}`;
   } else if (type === "loan") {
     const monthlyRate = R / 12 / 100;
     const months = T * 12;
     const EMI = (P * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
     const totalPayment = EMI * months;
     const totalInterest = totalPayment - P;
-    resultText = `Monthly EMI: ₹${EMI.toFixed(2)}<br>Total Interest: ₹${totalInterest.toFixed(2)}<br>Total Payment: ₹${totalPayment.toFixed(2)}`;
+
+    resultText = `
+      Monthly EMI: ₹${EMI.toFixed(2).toLocaleString()}<br>
+      Total Interest: ₹${totalInterest.toFixed(2).toLocaleString()}<br>
+      Total Payment: ₹${totalPayment.toFixed(2).toLocaleString()}
+    `;
   }
 
   document.getElementById("result").innerHTML = resultText;
