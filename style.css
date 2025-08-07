@@ -1,34 +1,43 @@
-/* Import Font */
+/* 📦 Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-/* Reset */
+/* 🔄 Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* 🧱 Base Styles */
 html, body {
   height: 100%;
+  min-height: 100vh;
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
   color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1.6;
   transition: all 0.3s ease;
+  padding: 0;
+  margin: 0;
 }
 
-/* Container */
+/* 📦 Container */
 .container {
   max-width: 500px;
-  margin: 5% auto;
+  width: 100%;
   padding: 2.5rem;
+  margin: 2rem;
+  box-sizing: border-box;
   background: linear-gradient(145deg, #ffffff, #e6f0ff);
   border-radius: 16px;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
   animation: fadeIn 0.8s ease-out;
 }
 
-/* Title */
+/* 📌 Title */
 h1 {
   text-align: center;
   margin-bottom: 2rem;
@@ -37,7 +46,7 @@ h1 {
   color: #333;
 }
 
-/* Select Dropdown */
+/* 🔽 Select Dropdown */
 select {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -55,7 +64,7 @@ select:focus {
   background: #e0ebff;
 }
 
-/* Input Fields */
+/* 🔢 Input Fields */
 input[type="number"] {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -74,7 +83,13 @@ input[type="number"]:focus {
   box-shadow: 0 0 0 4px rgba(102, 166, 255, 0.3);
 }
 
-/* Button Styling */
+/* ✨ Hover effect on inputs/selects */
+input[type="number"]:hover,
+select:hover {
+  transform: scale(1.02);
+}
+
+/* 🟦 Button Styling */
 button {
   width: 100%;
   padding: 0.9rem;
@@ -94,7 +109,7 @@ button:hover {
   box-shadow: 0 8px 25px rgba(102, 166, 255, 0.5);
 }
 
-/* Result Box */
+/* 📊 Result Box */
 #result {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -107,11 +122,11 @@ button:hover {
   transition: 0.4s ease;
 }
 
-/* Responsive */
+/* 📱 Responsive */
 @media (max-width: 600px) {
   .container {
-    margin: 2rem 1rem;
     padding: 2rem 1.2rem;
+    margin: 1rem;
   }
 
   h1 {
@@ -123,21 +138,15 @@ button:hover {
   }
 }
 
-/* Animations */
+/* 🎞️ Animations */
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(10px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Add hover scale effect to inputs (just for fun) */
-input[type="number"]:hover,
-select:hover {
-  transform: scale(1.02);
 }
 
