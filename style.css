@@ -1,52 +1,134 @@
-body {
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* CSS Reset */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  background: #fff;
-  padding: 25px 20px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  text-align: center;
-}
-
-h1 {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-input, select, button {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 0;
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container Styling */
+.container {
+  max-width: 480px;
+  margin: 5% auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+/* Dropdown */
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+/* Input Fields */
+input[type="number"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fefefe;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
+/* Button */
 button {
-  background: #2575fc;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #007BFF;
   color: white;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background: #1a5fd0;
+  background-color: #0056b3;
+  transform: translateY(-1px);
 }
 
+/* Result Box */
 #result {
-  margin-top: 20px;
-  font-size: 16px;
-  color: #333;
+  margin-top: 1.8rem;
+  padding: 1.2rem;
+  background-color: #f8f9fa;
+  border-left: 4px solid #007BFF;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  color: #222;
+  word-wrap: break-word;
+  min-height: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    margin: 2rem 1rem;
+    padding: 2rem 1.2rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
+
+/* Optional - subtle fade in animation */
+.container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
