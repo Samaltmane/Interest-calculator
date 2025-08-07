@@ -4,6 +4,16 @@ function toggleFields() {
 
   compoundField.style.display = (type === "compound") ? "block" : "none";
 }
+function toggleFields() {
+  const calcType = document.getElementById('calcType').value;
+  const compounded = document.getElementById('compounded');
+
+  if (calcType === 'compound') {
+    compounded.style.display = 'block';
+  } else {
+    compounded.style.display = 'none';
+  }
+}
 
 function calculate() {
   const type = document.getElementById("calcType").value;
