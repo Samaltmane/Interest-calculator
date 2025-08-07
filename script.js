@@ -1,20 +1,23 @@
+// 🔁 Random Background Gradient on Load
+const gradients = [
+  "linear-gradient(135deg, #89f7fe, #66a6ff)",
+  "linear-gradient(to right, #ff6ec4, #7873f5)",
+  "linear-gradient(to right, #e0eafc, #cfdef3)",
+  "linear-gradient(135deg, #667eea, #764ba2)",
+  "linear-gradient(120deg, #f6d365, #fda085)",
+  "linear-gradient(135deg, #1e1e2f, #23242a)"
+];
+document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];
+
+// 🔁 Show/hide "Compounded Per Year" input
 function toggleFields() {
-  const type = document.getElementById("calcType").value;
-  const compoundField = document.getElementById("compounded");
+  const calcType = document.getElementById("calcType").value;
+  const compounded = document.getElementById("compounded");
 
-  compoundField.style.display = (type === "compound") ? "block" : "none";
-}
-function toggleFields() {
-  const calcType = document.getElementById('calcType').value;
-  const compounded = document.getElementById('compounded');
-
-  if (calcType === 'compound') {
-    compounded.style.display = 'block';
-  } else {
-    compounded.style.display = 'none';
-  }
+  compounded.style.display = (calcType === "compound") ? "block" : "none";
 }
 
+// 🧮 Calculate based on selected type
 function calculate() {
   const type = document.getElementById("calcType").value;
   const P = parseFloat(document.getElementById("principal").value);
@@ -25,14 +28,20 @@ function calculate() {
   let resultText = "";
 
   if (isNaN(P) || isNaN(R) || isNaN(T)) {
-    resultText = "Please enter valid numbers.";
+    resultText = "❗ Please enter valid numbers.";
   } else if (type === "simple") {
     const SI = (P * R * T) / 100;
-    resultText = `Simple Interest: ₹${SI.toFixed(2).toLocaleString()}<br>Total Amount: ₹${(P + SI).toFixed(2).toLocaleString()}`;
+    resultText = `
+      ✅ <strong>Simple Interest:</strong> ₹${SI.toFixed(2).toLocaleString()}<br>
+      💰 <strong>Total Amount:</strong> ₹${(P + SI).toFixed(2).toLocaleString()}
+    `;
   } else if (type === "compound") {
     const amount = P * Math.pow((1 + R / (100 * N)), N * T);
     const CI = amount - P;
-    resultText = `Compound Interest: ₹${CI.toFixed(2).toLocaleString()}<br>Total Amount: ₹${amount.toFixed(2).toLocaleString()}`;
+    resultText = `
+      ✅ <strong>Compound Interest:</strong> ₹${CI.toFixed(2).toLocaleString()}<br>
+      💰 <strong>Total Amount:</strong> ₹${amount.toFixed(2).toLocaleString()}
+    `;
   } else if (type === "loan") {
     const monthlyRate = R / 12 / 100;
     const months = T * 12;
@@ -41,9 +50,9 @@ function calculate() {
     const totalInterest = totalPayment - P;
 
     resultText = `
-      Monthly EMI: ₹${EMI.toFixed(2).toLocaleString()}<br>
-      Total Interest: ₹${totalInterest.toFixed(2).toLocaleString()}<br>
-      Total Payment: ₹${totalPayment.toFixed(2).toLocaleString()}
+      ✅ <strong>Monthly EMI:</strong> ₹${EMI.toFixed(2).toLocaleString()}<br>
+      📈 <strong>Total Interest:</strong> ₹${totalInterest.toFixed(2).toLocaleString()}<br>
+      💰 <strong>Total Payment:</strong> ₹${totalPayment.toFixed(2).toLocaleString()}
     `;
   }
 
