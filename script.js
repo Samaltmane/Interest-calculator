@@ -1,6 +1,6 @@
 // 🔁 Random Background Gradient on Load
 const gradients = [
-  "linear-gradient(135deg, #89f7fe, #66a6ff)",
+ 
   "linear-gradient(to right, #ff6ec4, #7873f5)",
   "linear-gradient(to right, #e0eafc, #cfdef3)",
   "linear-gradient(135deg, #667eea, #764ba2)",
