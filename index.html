@@ -4,35 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Simple and compound interest calculator with EMI calculator." />
+  
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  
   <title>Interest Calculator</title>
 </head>
 <body>
   <div class="container">
     <h1>Interest Calculator</h1>
 
+    <!-- Type of Calculation -->
     <select id="calcType" onchange="toggleFields()">
       <option value="simple">Simple Interest</option>
       <option value="compound">Compound Interest</option>
       <option value="loan">Loan EMI</option>
     </select>
 
-    <input type="number" id="principal" placeholder="Principal Amount" />
+    <!-- Common Inputs -->
+    <input type="number" id="principal" placeholder="Principal Amount (₹)" />
     <input type="number" id="rate" placeholder="Annual Interest Rate (%)" />
     <input type="number" id="time" placeholder="Time (Years)" />
 
-    <input type="number" id="compounded" placeholder="Compounded Per Year" style="display:none;" />
-    
+    <!-- Only for Compound -->
+    <input type="number" id="compounded" placeholder="Compounded Per Year" style="display: none;" />
+
+    <!-- Action -->
     <button onclick="calculate()">Calculate</button>
 
+    <!-- Output -->
     <div id="result">
       <p>Result will appear here.</p>
     </div>
   </div>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
